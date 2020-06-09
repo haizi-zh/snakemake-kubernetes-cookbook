@@ -237,6 +237,14 @@ In a nutshell, what it does is simple: deploying daemon sets which keep listenin
 
 In addition, you can also subscribe the interruption notification through CloudWatch.
 
+### Spot Instance Termination Handler
+
+AWS Spot Instances are supposed to be ephemeral, meaning that AWS may terminate them any time when the underlying EC2 pool resource is limited.
+
+A good practice is deploying a DaemonSet watching the 2-minute termination, and gracefully handle the event upon receiving the notice. Try: [https://github.com/aws/aws-node-termination-handler](https://github.com/aws/aws-node-termination-handler)
+
+Notice: maybe you want to use the `cordonOnly` flag, because we are running snakemake jobs, and we in fact don't need draining and eviction. A simple _let-it-fail_ strategy may serve better.
+
 ## Elasticsearch/Kibana for Logging
 
 {% hint style="info" %}

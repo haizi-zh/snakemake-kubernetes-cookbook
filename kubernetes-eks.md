@@ -197,7 +197,7 @@ k8s.io/cluster-autoscaler/node-template/label/foo=bar
 
 Where the nodes are labeled as `foo=bar`. 
 
-In our example, the computing node group is labelled as: `labels: { autoscaling: full }`, therefore, the ASG should be properly tagged as: 
+In our example, the computing node group is labeled as: `labels: { autoscaling: full }`, therefore, the ASG should be properly tagged as: 
 
 ```text
 k8s.io/cluster-autoscaler/node-template/label/autoscaling=full
